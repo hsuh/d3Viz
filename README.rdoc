@@ -1,0 +1,11 @@
+== README
+
+This is my attempt at using requirejs for a D3 app. The original D3 app is taken from flowingdata.com 'How to animate transitions between multiple charts'
+
+* Ruby version - 2.0.0p247
+
+* Database creation - N/A
+
+* Database initialization - N/A
+
+* How to run the test suite - no tests yet :(
