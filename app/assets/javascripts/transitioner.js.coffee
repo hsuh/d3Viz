@@ -5,10 +5,11 @@
 # was clicked. 
 # ---
 
-define ['d3'], transitionTo = (name) ->
-  if name == "stream"
-    streamgraph()
-  if name == "stack"
-    stackedAreas()
-  if name == "area"
-    areas()
+define ['streamgraph', 'stacked_areas', 'area'],transitionTo = (sg, sa, area) ->
+  return transitionTo: (name) ->
+    if name is "stream"
+      sg.streamGraph()
+    if name is "stack"
+      sa.stackedAreas()
+    if name is "area"
+      area.areas()

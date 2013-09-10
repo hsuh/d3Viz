@@ -6,6 +6,7 @@ define ['moo'], legend = (moo) ->
   return createLegend: () ->
     vars = moo.getVars()
     data = vars.data
+    color = vars.color
     legendWidth = 200
     legendHeight = 245
     showLegend = (d,i) ->

@@ -1,9 +1,11 @@
 %div.container
   %div.navbar
     %div.navbar-inner
-      = link_to "title", '#', class: "brand"
+      = link_to "Requirejs with D3", '#', class: "brand"
       %ul.nav
-        %li.active= link_to 'Home', '#'
-        %li= link_to 'Link', '#'
-        %li= link_to 'Link', '#'
-%div#viz
+        %li{class: "active switch", id: 'stream'}= link_to 'Streamgraph', '#'
+        %li{class: "switch", id: 'stack'}= link_to 'Stacked', '#'
+        %li{class: "switch", id: 'area'}= link_to 'Area', '#'
+%div.container
+  %div#viz
+%div#legend

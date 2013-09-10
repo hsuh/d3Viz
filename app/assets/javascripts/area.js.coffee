@@ -1,46 +1,57 @@
 # ---
 # Code to transition to Area chart.
 # ---
-areas = () ->
-  g = svg.selectAll(".request")
+define ['moo'], area = (moo) ->
+  return areas: () ->
+    vars  = moo.getVars()
+    stack = vars.stack
+    data  = vars.data
+    y     = vars.y
+    height = vars.height
+    line   = vars.line
+    area   = vars.area
+    svg    = vars.svg
+    duration = vars.duration
 
-  # set the starting position of the border
-  # line to be on the top part of the areas.
-  # then it is immediately hidden so that it
-  # can fade in during the transition below
-  line.y((d) -> y(d.count0 + d.count))
-  g.select("path.line")
-    .attr("d", (d) -> line(d.values))
-    .style("stroke-opacity", 1e-6)
+    g = svg.selectAll(".request")
 
- 
-  # as there is no stacking in this chart, the maximum
-  # value of the input domain is simply the maximum count value,
-  # which we precomputed in the display function 
-  y.domain([0, d3.max(data.map((d) -> d.maxCount))])
-    .range([height, 0])
+    # set the starting position of the border
+    # line to be on the top part of the areas.
+    # then it is immediately hidden so that it
+    # can fade in during the transition below
+    line.y((d) -> y(d.count0 + d.count))
+    g.select("path.line")
+      .attr("d", (d) -> line(d.values))
+      .style("stroke-opacity", 1e-6)
 
-  # the baseline of this chart will always
-  # be at the bottom of the display, so we
-  # can set y0 to a constant.
-  area.y0(height)
-    .y1((d) -> y(d.count))
+   
+    # as there is no stacking in this chart, the maximum
+    # value of the input domain is simply the maximum count value,
+    # which we precomputed in the display function 
+    y.domain([0, d3.max(data.map((d) -> d.maxCount))])
+      .range([height, 0])
 
-  line.y((d) -> y(d.count))
+    # the baseline of this chart will always
+    # be at the bottom of the display, so we
+    # can set y0 to a constant.
+    area.y0(height)
+      .y1((d) -> y(d.count))
 
-  t = g.transition()
-    .duration(duration)
+    line.y((d) -> y(d.count))
 
-  # transition the areas to be 
-  # partially transparent so that the
-  # overlap is better understood.
-  t.select("path.area")
-    .style("fill-opacity", 0.5)
-    .attr("d", (d) -> area(d.values))
+    t = g.transition()
+      .duration(duration)
 
-  # here we finally show the line 
-  # that serves as a nice border at the
-  # top of our areas
-  t.select("path.line")
-    .style("stroke-opacity", 1)
-    .attr("d", (d) -> line(d.values))
+    # transition the areas to be 
+    # partially transparent so that the
+    # overlap is better understood.
+    t.select("path.area")
+      .style("fill-opacity", 0.5)
+      .attr("d", (d) -> area(d.values))
+
+    # here we finally show the line 
+    # that serves as a nice border at the
+    # top of our areas
+    t.select("path.line")
+      .style("stroke-opacity", 1)
+      .attr("d", (d) -> line(d.values))
