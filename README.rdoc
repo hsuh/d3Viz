@@ -9,3 +9,5 @@ This is my attempt at using requirejs for a D3 app. The original D3 app is taken
 * Database initialization - N/A
 
 * How to run the test suite - no tests yet :(
+
+Link to flowingdata - http://flowingdata.com/2013/01/17/how-to-animate-transitions-between-multiple-charts/
