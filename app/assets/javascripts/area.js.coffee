@@ -3,15 +3,15 @@
 # ---
 define ['moo'], area = (moo) ->
   return areas: () ->
-    vars  = moo.getVars()
-    stack = vars.stack
-    data  = vars.data
-    y     = vars.y
+    vars   = moo.getVars()
+    stack  = vars.stack
+    data   = vars.data
+    y      = vars.y
     height = vars.height
     line   = vars.line
     area   = vars.area
     svg    = vars.svg
-    duration = vars.duration
+    duration = 750
 
     g = svg.selectAll(".request")
 
@@ -24,7 +24,6 @@ define ['moo'], area = (moo) ->
       .attr("d", (d) -> line(d.values))
       .style("stroke-opacity", 1e-6)
 
-   
     # as there is no stacking in this chart, the maximum
     # value of the input domain is simply the maximum count value,
     # which we precomputed in the display function 

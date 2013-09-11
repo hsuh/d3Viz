@@ -1,6 +1,6 @@
 paths:
-  jquery: 'assets/jquery',
-  jquery_ujs: 'assets/jquery_ujs',
-  turbolinks: 'assets/turbolinks',
-  bootstrap: 'assets/bootstrap.js',
-  d3: 'assets/d3'
+  jquery: 'jquery'
+  jquery_ujs: 'jquery_ujs'
+  turbolinks: 'turbolinks'
+  bootstrap: 'bootstrap'
+  d3: 'd3'

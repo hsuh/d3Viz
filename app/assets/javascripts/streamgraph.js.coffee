@@ -18,7 +18,7 @@ define ['moo'], stream = (moo) ->
     line   = vars.line
     area   = vars.area
     svg    = vars.svg
-    duration = vars.duration
+    duration = 750
 
     # 'wiggle' is the offset to use 
     # for streamgraphs.

@@ -15,7 +15,7 @@ define ['moo'], stacked = (moo) ->
     line   = vars.line
     area   = vars.area
     svg    = vars.svg
-    duration = vars.duration
+    duration = 750
 
     # the offset is the only thing we need to 
     # change on our stack layout to have a completely

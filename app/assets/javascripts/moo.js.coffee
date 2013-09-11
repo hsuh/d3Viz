@@ -1,3 +1,3 @@
 define ['d3'], () ->
-  vars   = {}
+  vars = {}
   return getVars: () -> return vars
